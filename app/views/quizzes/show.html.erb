@@ -1,0 +1,25 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <%= form_with(url: quiz_submissions_path(@quiz), local: true, method: :post) do |form| %>
+      <% @quiz.questions.each_with_index do |question, index| %>
+        <div class="">
+          <div class="flex flex-col">
+            <p class="">Question: <%= index + 1 %> <%= question.content.to_s %></p>
+            <% if question.image.attached? %>
+              <%= image_tag question.image, class: "" %>
+            <% end %>
+            <% 1.upto(4) do |answer_index| %>
+              <div class="">
+                <%= form.radio_button "question_#{question.id}", answer_index, class: "" %>
+                <%= form.label "question_#{question.id}_#{answer_index}", question.send("answer#{answer_index}"), class: "" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <%= form.submit "Submit Quiz", class: ""%>
+    <% end %>
+</div>

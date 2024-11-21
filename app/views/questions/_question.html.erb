@@ -1,0 +1,43 @@
+<div id="<%= dom_id question %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Quiz:</strong>
+    <%= question.quiz_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Content:</strong>
+    <%= question.content %>
+  </p>
+
+  <% if question.image.attached? %>
+    <p class="my-5">
+      <%= image_tag question.image, class: "" %>
+    </p>
+  <% end %>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Answer1:</strong>
+    <%= question.answer1 %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Answer2:</strong>
+    <%= question.answer2 %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Answer3:</strong>
+    <%= question.answer3 %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Answer4:</strong>
+    <%= question.answer4 %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Correct answer:</strong>
+    <%= question.correct_answer %>
+  </p>
+
+</div>
